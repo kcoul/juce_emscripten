@@ -251,8 +251,10 @@
  #include <sys/file.h>
  #include <sys/ioctl.h>
  #include <sys/mman.h>
- #include <sys/prctl.h>
- #include <sys/ptrace.h>
+ #if JUCE_LINUX
+ #include <sys/prctl.h> //Removed from Emscripten https://github.com/emscripten-core/emscripten/issues/18141#issuecomment-1302645126
+ #include <sys/ptrace.h> //ditto
+ #endif
  #include <sys/socket.h>
  #include <sys/stat.h>
  #include <sys/sysinfo.h>
